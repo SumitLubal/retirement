@@ -1,0 +1,141 @@
+.account-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.account-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.account-list::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 3px;
+}
+
+.account-list::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+
+.account-list::-webkit-scrollbar-thumb:hover {
+  background: #0066cc;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  color: #94a3b8;
+  font-style: italic;
+  font-size: 0.95rem;
+}
+
+.account-item {
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  border-radius: 8px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  border: 1.5px solid #e2e8f0;
+  transition: all 0.2s ease;
+}
+
+.account-item:hover {
+  border-color: #0066cc;
+  box-shadow: 0 4px 12px rgba(0, 102, 204, 0.1);
+}
+
+.account-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.account-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+}
+
+.account-type {
+  font-size: 1.1rem;
+  min-width: 28px;
+}
+
+.account-name {
+  font-weight: 600;
+  color: #1e293b;
+  font-size: 0.8rem;
+}
+
+.account-amount {
+  font-weight: 700;
+  color: #0066cc;
+  white-space: nowrap;
+  font-size: 0.9rem;
+}
+
+.account-amounts {
+  display: flex;
+  gap: 6px;
+  align-items: flex-end;
+}
+
+.amount-field {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  flex: 1;
+}
+
+.field-label {
+  font-size: 0.65rem;
+  color: #64748b;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.amount-input {
+  padding: 6px 8px;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-family: inherit;
+  background: white;
+  color: #1e293b;
+  transition: all 0.2s ease;
+}
+
+.amount-input:focus {
+  outline: none;
+  border-color: #0066cc;
+  box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.1);
+}
+
+.btn-delete {
+  padding: 4px 8px;
+  background: #fee2e2;
+  color: #dc2626;
+  border: 1px solid #fecaca;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  font-size: 0.8rem;
+  min-width: 28px;
+}
+
+.btn-delete:hover {
+  background: #fecaca;
+  color: #991b1b;
+  border-color: #f87171;
+}
+
+.btn-delete:active {
+  transform: scale(0.95);
+}

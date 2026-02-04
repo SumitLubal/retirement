@@ -1,0 +1,119 @@
+.chart-section {
+  background: white;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.chart-section h2 {
+  margin: 0 0 12px 0;
+  color: #1e293b;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.chart {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.chart-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.bar-label {
+  font-weight: 600;
+  color: #1e293b;
+  font-size: 0.8rem;
+}
+
+.bar-container {
+  display: flex;
+  height: 32px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #e2e8f0;
+  position: relative;
+}
+
+.bar-segment {
+  height: 100%;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: white;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+  min-width: 35px;
+}
+
+.bar-segment.savings {
+  background: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 100%);
+}
+
+.bar-segment.investments {
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+}
+
+.bar-value {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #1e293b;
+  text-align: right;
+  margin-top: 4px;
+}
+
+.chart-legend {
+  display: flex;
+  gap: 14px;
+  justify-content: flex-start;
+  padding: 10px;
+  background: #f8fafc;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #64748b;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.legend-color {
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+}
+
+.legend-color.savings {
+  background: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 100%);
+}
+
+.legend-color.investments {
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+}
+
+@media (max-width: 640px) {
+  .chart-section {
+    padding: 20px;
+  }
+
+  .chart {
+    gap: 24px;
+  }
+
+  .chart-legend {
+    flex-direction: column;
+    gap: 12px;
+  }
+}

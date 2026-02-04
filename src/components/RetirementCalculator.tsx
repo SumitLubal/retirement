@@ -15,6 +15,7 @@ interface Account {
 
 interface RetirementData {
   accounts: Account[]
+  currentAge: number
   retirementAge: number
   investmentRate: number
   savingsRate: number
@@ -31,6 +32,7 @@ const loadInitialState = (): RetirementData => {
       const parsed = JSON.parse(savedData)
       return {
         accounts: parsed.accounts || [],
+        currentAge: parsed.currentAge || 30,
         retirementAge: parsed.retirementAge || 65,
         investmentRate: parsed.investmentRate || 5,
         savingsRate: parsed.savingsRate || 2,
@@ -42,6 +44,7 @@ const loadInitialState = (): RetirementData => {
   }
   return {
     accounts: [],
+    currentAge: 30,
     retirementAge: 65,
     investmentRate: 5,
     savingsRate: 2,
@@ -52,12 +55,12 @@ const loadInitialState = (): RetirementData => {
 const RetirementCalculator = () => {
   const initialState = loadInitialState()
   const [accounts, setAccounts] = useState<Account[]>(initialState.accounts)
+  const [currentAge, setCurrentAge] = useState(initialState.currentAge)
   const [retirementAge, setRetirementAge] = useState(initialState.retirementAge)
   const [investmentRate, setInvestmentRate] = useState(initialState.investmentRate)
   const [savingsRate, setSavingsRate] = useState(initialState.savingsRate)
   const [withdrawalRate, setWithdrawalRate] = useState(initialState.withdrawalRate)
   const [viewAge, setViewAge] = useState(initialState.retirementAge)
-  const currentAge = 30
 
   // Update viewAge when retirement age changes
   useEffect(() => {
@@ -69,6 +72,7 @@ const RetirementCalculator = () => {
     try {
       const dataToSave: RetirementData = {
         accounts,
+        currentAge,
         retirementAge,
         investmentRate,
         savingsRate,
@@ -78,7 +82,7 @@ const RetirementCalculator = () => {
     } catch (error) {
       console.error('Failed to save data:', error)
     }
-  }, [accounts, retirementAge, investmentRate, savingsRate, withdrawalRate])
+  }, [accounts, currentAge, retirementAge, investmentRate, savingsRate, withdrawalRate])
 
   const addAccount = (account: Omit<Account, 'id'>) => {
     const newAccount: Account = {
@@ -306,6 +310,21 @@ const RetirementCalculator = () => {
       <div className="calculator-content">
         <div className="left-panel">
           <section className="controls">
+            <div className="retirement-age-control">
+              <label>
+                <span>Your Age: <strong>{currentAge}</strong></span>
+                <p className="subtitle">Current age</p>
+              </label>
+              <input
+                type="range"
+                min="18"
+                max="80"
+                value={currentAge}
+                onChange={(e) => setCurrentAge(Number(e.target.value))}
+                className="slider"
+              />
+            </div>
+
             <div className="retirement-age-control">
               <label>
                 <span>Retirement Age: <strong>{retirementAge}</strong></span>
